@@ -1,22 +1,28 @@
 ## Public Studio 📷
 
-#### 1. 프로젝트 Description
+### 1. 프로젝트 Description
 
 - Public Studio, 감성이 공유되는 공간
 
-##### 로그인 페이지
+#### 로그인 페이지
 
 <!-- ## <img src="./static/img/login.jpg" /> -->
 
-##### 메인 페이지
+#### 메인 페이지
 
-#### 2. 프로젝트 기간
+### 2. 프로젝트 기간
 
 2023.04.30 ~ 2023.05.04
 
 ## 🕹️ Stack
 
-##### 패키지 설치
+### 패키지 설치
+
+1. 상태 관리 : redux-tookit
+2. Routing : react-router-dom
+3. 데이터 통신 : axios
+4. Server : JSON-server
+5. CSS : styled-components
 
 ```
 yarn add styled-components
@@ -30,7 +36,7 @@ yarn json-server --watch db.json --port 4000
 
 ## 💡 요구사항
 
-##### 기능
+### 기능
 
 (1) 공통 - UI 구현하기 - API 명세서 작성하기
 
@@ -38,7 +44,7 @@ yarn json-server --watch db.json --port 4000
 
 (3) 배포 - json-server 서버 배포 (heroku 사용) - 리액트 프로젝트 배포 (S3, vercel 등 자유)
 
-##### 요구사항
+### 요구사항
 
 - **동적 라우팅을 사용**하세요.
 - 1개 이상의 `Custom Hook`을 구현하세요.
@@ -50,3 +56,58 @@ yarn json-server --watch db.json --port 4000
 - 배포된 결과물에서는 `console.log()` 가 보이지 않도록 처리합니다.
 - `.env` 를 이용해서 API 서버의 URL 코드상에서 숨기도록 처리합니다.
 - API 명세서 (프로젝트 완료 후 작성)
+
+## ✨ Page 및 컴포넌트 설계
+
+### Page 설계
+
+- MainPage
+- IntroPage
+- PostsPage
+- PostPage
+- DetailPage
+- FormPage
+
+### common 컴포넌트 설계
+
+- AppLayout
+- Header
+- Footer
+- Section
+- InnerCon
+- FlexCon
+- AirBox
+- Modal
+
+### 컴포넌트 설계
+
+- Input
+- Button
+- MainPost
+- Post
+- Form
+- NewPosts
+
+## ✨ 기능 구현 목표
+
+#### MainPage
+
+#### IntroPage
+
+#### PostsPage
+
+#### PostPage
+
+#### DetailPage
+
+#### FormPage
+
+### Commit Convention
+
+Feat : 새로운 기능을 추가할 경우
+Fix : 버그를 고친 경우
+Design : CSS 등 사용자 UI 디자인 변경
+Refactor : 프로덕션 코드 리팩토링
+Docs : 문서를 수정한 경우
+Rename : 파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우
+Remove : 파일을 삭제하는 작업만 수행한 경우
