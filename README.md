@@ -65,28 +65,25 @@ yarn json-server --watch db.json --port 4000
 - IntroPage
 - PostsPage
 - PostPage
-- DetailPage
 - FormPage
 
 ### common 컴포넌트 설계
 
-- AppLayout
 - Header
 - Footer
-- Section
-- InnerCon
-- FlexCon
 - AirBox
-- Modal
+- Section(styled)
+- InnerCon(styled)
+- FlexCon(styled)
 
 ### 컴포넌트 설계
 
 - Input
 - Button
-- MainPost
 - Post
 - Form
 - NewPosts
+- Modal
 
 ## ✨ 기능 구현 목표
 
