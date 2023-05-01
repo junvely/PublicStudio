@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { StHeader, StLogo } from "styles/Components";
 
 function Header() {
   return (
     <StHeader>
-      <StLogo>Public Studio</StLogo>
+      <StLogo>
+        <Link to="/">Public Studio</Link>
+      </StLogo>
     </StHeader>
   );
 }

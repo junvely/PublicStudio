@@ -7,7 +7,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "redux/components/common/Header";
 import { StLayout } from "styles/Components";
-import { StFlexWrap } from "styles/GlobalStyles";
+import { StFlexWrap, StPositionSec, StSection } from "styles/GlobalStyles";
 import { Colors } from "styles/Them";
 
 function Router() {
@@ -17,13 +17,15 @@ function Router() {
         <StFlexWrap bgColor={Colors.lightBlue}>
           <StLayout>
             <Header></Header>
-            <Routes>
-              <Route path="/" element={<MainPage />}></Route>
-              <Route path="/intro" element={<IntroPage />}></Route>
-              <Route path="/posts" element={<PostsPage />}></Route>
-              <Route path="/posts:id" element={<PostPage />}></Route>
-              <Route path="/form" element={<FormPage />}></Route>
-            </Routes>
+            <StSection>
+              <Routes>
+                <Route path="/" element={<MainPage />}></Route>
+                <Route path="/intro" element={<IntroPage />}></Route>
+                <Route path="/posts" element={<PostsPage />}></Route>
+                <Route path="/posts/:id" element={<PostPage />}></Route>
+                <Route path="/form" element={<FormPage />}></Route>
+              </Routes>
+            </StSection>
           </StLayout>
         </StFlexWrap>
       </BrowserRouter>

@@ -72,6 +72,7 @@ yarn json-server --watch db.json --port 4000
 - Header
 - Footer
 - AirBox
+- Button
 - Section(styled)
 - InnerCon(styled)
 - FlexCon(styled)
@@ -79,9 +80,7 @@ yarn json-server --watch db.json --port 4000
 ### 컴포넌트 설계
 
 - Input
-- Button
 - Post
-- Form
 - NewPosts
 - Modal
 
