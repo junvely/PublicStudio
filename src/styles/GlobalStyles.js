@@ -48,9 +48,10 @@ export const StSection = styled.section`
 `;
 
 export const StPositionSec = styled.section`
-  position: ${(props) => props.position && "relative"};
   width: 100%;
+  width: 1400px;
   height: 530px;
+  position: ${(props) => props.position && "relative"};
 `;
 
 export const StInnerCon = styled.div`
@@ -67,6 +68,7 @@ export const StFlexCon = styled.div`
 `;
 
 export const StFlexCenter = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,4 +89,12 @@ export const StDetailCon = styled.div`
   justify-content: space-between;
   overflow: hidden;
   position: relative;
+`;
+
+export const ErrorMessage = styled.p`
+  width: 100%;
+  font-size: 20px;
+  font-family: ${Fonts.notoSans};
+  font-weight: 600;
+  text-align: center;
 `;

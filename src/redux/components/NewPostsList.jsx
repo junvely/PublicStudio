@@ -9,8 +9,12 @@ function NewPostsList({ isActive }) {
     <StNewPostsCon>
       {isActive ? (
         <StFlexCon>
-          {array.map((list) => {
-            return <Link to="/">{list}</Link>;
+          {array.map((list, idx) => {
+            return (
+              <Link to="/" key={idx}>
+                {list}
+              </Link>
+            );
           })}
         </StFlexCon>
       ) : (

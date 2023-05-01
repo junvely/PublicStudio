@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "userName": "Master",
+      "title": "The Crown House",
+      "contents": "The Crown House The Crown House The Crown House The Crown House",
+      "imgURL": "https://cdn.pixabay.com/photo/2016/06/24/11/48/architecture-1477101_960_720.jpg",
+      "date": "2023.5.1"
+    },
+    {
+      "id": 2,
+      "userName": "Master",
+      "title": "Florlst studio",
+      "contents": "Florlst studio Florlst studio Florlst studio Florlst studio ",
+      "imgURL": "https://cdn.pixabay.com/photo/2017/03/29/20/10/london-2186349_960_720.jpg",
+      "date": "2023.5.1"
+    },
+    {
+      "id": 3,
+      "userName": "Master",
+      "title": "Rose-Tinted Fire",
+      "contents": "Rose-Tinted Fire Rose-Tinted Fire Rose-Tinted Fire Rose-Tinted Fire",
+      "imgURL": "https://cdn.pixabay.com/photo/2016/06/24/10/47/house-1477041_960_720.jpg",
+      "date": "2023.5.1"
+    },
+    {
+      "id": 4,
+      "userName": "Master",
+      "title": "Rose-Tinted Fire",
+      "contents": "Rose-Tinted Fire Rose-Tinted Fire Rose-Tinted Fire Rose-Tinted Fire",
+      "imgURL": "https://cdn.pixabay.com/photo/2016/06/24/10/47/house-1477041_960_720.jpg",
+      "date": "2023.5.1"
+    },
+    {
+      "id": "f1d1013e-2d6b-481d-a62a-1d55afb0a917",
+      "userName": "Master",
+      "title": "Test imge URL",
+      "contents": "Test imge URL Test imge URL Test imge URL Test imge URL",
+      "imgURL": "https://i.pinimg.com/originals/b0/63/2d/b0632dadbde9e94e7118d0cb6edb0cf2.jpg",
+      "date": "2023. 5. 2."
+    },
+    {
+      "id": "85703c38-1293-4d99-8b9a-585456c7f49f",
+      "userName": "Master",
+      "title": "Test IMGURL",
+      "contents": "Test IMGURL Test IMGURL Test IMGURL Test IMGURL",
+      "imgURL": "https://t1.daumcdn.net/cfile/tistory/21350035516CA32826",
+      "date": "2023. 5. 2."
+    }
+  ]
+}

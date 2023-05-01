@@ -20,7 +20,6 @@ export const StPosts = styled.div`
   width: 60%;
   padding: 7% 5% 5% 0;
   position: absolute;
-
   top: 0;
   right: 0;
 
@@ -60,18 +59,23 @@ export const StPosts = styled.div`
 //PostPage
 export const StModifyCon = styled.div`
   div {
+    width: 100%;
     display: flex;
     padding-bottom: 2%;
     margin-bottom: 3%;
     border-bottom: 2px solid ${Colors.lightGray};
   }
   span {
+    display: block;
+    padding: 0 3%;
     font-size: 1.5rem;
     font-family: ${Fonts.rogotoSlab};
     margin-right: 3%;
   }
 
   p {
+    width: 60%;
+    height: 100%;
     font-size: 1.2rem;
     line-height: 2rem;
     word-break: break-all;
@@ -161,6 +165,8 @@ export const StLogo = styled.h1`
 
 // Posts
 export const StPostsCon = styled.div`
+  width: 100%;
+  max-width: 1400px;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -170,6 +176,7 @@ export const StPostsCon = styled.div`
 
 // Post
 export const StPost = styled.div`
+  position: relative;
   width: ${(props) => props.width || "26%"};
   margin-bottom: 10%;
   transition: all 0.3s;
@@ -217,7 +224,7 @@ export const StoutCon = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: ${Colors.lightGray};
+  background-color: ${Colors.opacityBlack};
 `;
 
 export const StClose = styled.span`
@@ -230,9 +237,14 @@ export const StClose = styled.span`
   top: 15px;
   right: 15px;
   color: ${Colors.white};
-  background-color: ${Colors.black};
-  border-radius: 10px;
+  background-color: ${Colors.opacityBlack};
+  border-radius: 5px;
+  transition: all 0.3s;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${Colors.black};
+  }
 `;
 
 export const StModal = styled.div``;

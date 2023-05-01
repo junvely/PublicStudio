@@ -1,48 +1,31 @@
-import React, { useState } from "react";
+import { getPostsAxios } from "../axios/api";
+import React, { useEffect } from "react";
 import Post from "redux/components/Post";
 import Footer from "redux/components/common/Footer";
 import { StPostsCon } from "styles/Components";
 import { StPositionSec } from "styles/GlobalStyles";
+import { fetchPosts } from "redux/modules/postsSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function PostsPage() {
-  const test = [
-    {
-      id: 1,
-      title: "test입니다.",
-      userName: "ID123",
-      imgURL: "./img/camera.jpg",
-    },
-    {
-      id: 2,
-      title: "test입니다.",
-      userName: "ID123",
-      imgURL: "./img/camera.jpg",
-    },
-    {
-      id: 3,
-      title: "test입니다.",
-      userName: "ID123",
-      imgURL: "./img/camera.jpg",
-    },
-    {
-      id: 4,
-      title: "test입니다.",
-      userName: "ID123",
-      imgURL: "./img/camera.jpg",
-    },
-    {
-      id: 5,
-      title: "test입니다.",
-      userName: "ID123",
-      imgURL: "./img/camera.jpg",
-    },
-  ];
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.postsSlice.posts);
+
+  const getPostsData = async () => {
+    const { data } = await getPostsAxios();
+    dispatch(fetchPosts(data));
+  };
+
+  useEffect(() => {
+    getPostsData();
+  }, []);
+
   return (
     <div>
       <StPositionSec>
         <StPostsCon>
-          {test.map((post) => {
-            return <Post key={post.id} post={post}></Post>;
+          {posts.map((post) => {
+            return <Post key={post.id} post={post} isActive={true}></Post>;
           })}
         </StPostsCon>
       </StPositionSec>

@@ -6,7 +6,7 @@ import Button from "./common/Button";
 function Modal({ post, modalToggle }) {
   const [contents, setContents] = useState(post.contents);
 
-  const onSaveButtonClickHandler = () => {
+  const handleClickSaveButton = () => {
     modalToggle();
     // 수정 로직
     alert("수정되었습니다!");
@@ -16,6 +16,7 @@ function Modal({ post, modalToggle }) {
     <>
       <StoutCon>
         <StDetailCon>
+          {/* 닫기 버튼 */}
           <StClose onClick={modalToggle}>X</StClose>
           <StModifyCon>
             <div>
@@ -37,7 +38,7 @@ function Modal({ post, modalToggle }) {
             </div>
           </StModifyCon>
           <StButtonCon>
-            <Button width="40%" onClick={onSaveButtonClickHandler}>
+            <Button width="40%" onClick={handleClickSaveButton}>
               Save
             </Button>
           </StButtonCon>

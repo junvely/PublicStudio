@@ -7,7 +7,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "redux/components/common/Header";
 import { StLayout } from "styles/Components";
-import { StFlexWrap, StPositionSec, StSection } from "styles/GlobalStyles";
+import { StFlexWrap, StSection } from "styles/GlobalStyles";
 import { Colors } from "styles/Them";
 
 function Router() {
