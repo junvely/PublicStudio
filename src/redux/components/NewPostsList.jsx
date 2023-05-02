@@ -1,11 +1,13 @@
+import { getPostsAxios } from "../../axios/api";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { StNewPostList, StNewPostsCon } from "styles/Components";
 import { StFlexCon } from "styles/GlobalStyles";
 
 function NewPostsList({ isActive }) {
-  const postList = useSelector((state) => state.postsSlice.posts).slice(0, 4);
+  const { data } = useQuery("posts", getPostsAxios);
+  const postList = data.slice(0, 4);
   // Posts최신순
   const newList = [...postList].reverse().slice(0, 4);
 
