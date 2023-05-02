@@ -16,10 +16,8 @@ function NewPostsList({ isActive }) {
         <StFlexCon>
           {postList.map((post) => {
             return (
-              <StNewPostList>
-                <Link to={`/posts/${post.id}`} key={post.id}>
-                  '{post.title}'
-                </Link>
+              <StNewPostList key={post.id}>
+                <Link to={`/posts/${post.id}`}>'{post.title}'</Link>
               </StNewPostList>
             );
           })}
