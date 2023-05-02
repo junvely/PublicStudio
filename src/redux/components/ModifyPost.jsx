@@ -4,16 +4,15 @@ import {
   StModifyCon,
   StoutCon,
 } from "styles/Components";
-import { StDetailCon } from "styles/GlobalStyles";
+import { ErrorMessage, StDetailCon, StFlexCenter } from "styles/GlobalStyles";
 import Button from "./common/Button";
-import { useDispatch, useSelector } from "react-redux";
 import { usePost } from "redux/hooks/useInput";
-import { updatePostAxios } from "../../axios/api";
-import { updatePost } from "redux/modules/postSlice";
+import { getPostAxios, updatePostAxios } from "../../axios/api";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 
-function ModifyPost({ modalToggle }) {
-  const beforePost = useSelector((state) => state.postSlice.post);
-  const [newPost, handleInputChange, resetPost] = usePost(beforePost);
+function ModifyPost({ id, modalToggle }) {
+  const { isLoading, isError, data } = useQuery("post", () => getPostAxios(id));
+  const [newPost, handleInputChange, resetPost] = usePost(data);
 
   const resetState = {
     id: 0,
@@ -22,13 +21,6 @@ function ModifyPost({ modalToggle }) {
     contents: "",
     imgURL: "",
     date: "",
-  };
-
-  const dispatch = useDispatch();
-
-  // 서버 데이터 수정
-  const updatePostData = async (newPost) => {
-    await updatePostAxios(newPost.id, newPost);
   };
 
   // 폼 유효성 검사
@@ -40,14 +32,22 @@ function ModifyPost({ modalToggle }) {
     return true;
   };
 
-  // 수정된 newPost로 post reducer 수정, 서버에 전송
-  const handleClickSaveUpdatePost = () => {
-    if (formValidation()) {
-      dispatch(updatePost(newPost)); // post reducer 수정
-      updatePostData(newPost); // 서버에 수정 요청하는 함수
+  const queryClient = useQueryClient();
+  const mutation = useMutation(updatePostAxios, {
+    onSuccess: () => {
       resetPost(resetState); // usePost 초기화
       modalToggle(); // toggle 닫기
-      alert("수정되었습니다!");
+      alert("수정 성공!");
+      queryClient.invalidateQueries("post");
+    },
+    onError: () => {
+      alert("Error : 서버 에러 발생");
+    },
+  });
+
+  const handleClickSaveUpdatePost = () => {
+    if (formValidation()) {
+      mutation.mutate(newPost); //서버에 수정 요청
     }
   };
 
@@ -57,6 +57,17 @@ function ModifyPost({ modalToggle }) {
         <StDetailCon>
           {/* 닫기 버튼 */}
           <StDelete onClick={modalToggle}>X</StDelete>
+          {/* 에러 페이지 처리 */}
+          {(isLoading || isError) && (
+            <StFlexCenter>
+              <ErrorMessage>
+                {isLoading
+                  ? "🔵 Loding . . ."
+                  : "❗Error : 서버 Error발생으로 인하여 데이터를 가져올 수 없습니다."}
+              </ErrorMessage>
+            </StFlexCenter>
+          )}
+          {/* 수정 모달 */}
           <StModifyCon>
             <div>
               <span> Title : </span>

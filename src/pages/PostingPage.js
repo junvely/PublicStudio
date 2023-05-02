@@ -3,16 +3,12 @@ import Footer from "redux/components/common/Footer";
 import { StButtonCon, StModifyCon } from "styles/Components";
 import { StDetailCon, StFlexCenter, StPositionSec } from "styles/GlobalStyles";
 import { addPostsAxios } from "../axios/api";
-import { useDispatch } from "react-redux";
-import { addPost } from "redux/modules/postsSlice";
 import { usePost } from "redux/hooks/useInput";
 import { v4 as uuidv4 } from "uuid";
+import { useMutation, useQueryClient } from "react-query";
 
 function PostingPage() {
-  const dispatch = useDispatch();
-
   let today = new Date();
-
   const initialState = {
     id: uuidv4(),
     userName: "Master",
@@ -24,6 +20,17 @@ function PostingPage() {
 
   // custom Hook
   const [post, handleInputChange, resetPost] = usePost(initialState);
+  const queryClient = useQueryClient();
+  const mutation = useMutation(addPostsAxios, {
+    onSuccess: () => {
+      alert("포스팅 성공!");
+      resetPost();
+      queryClient.invalidateQueries("posts");
+    },
+    onError: () => {
+      alert("Error : 서버 에러 발생");
+    },
+  });
 
   // 폼 유효성 검사
   const formValidation = () => {
@@ -36,10 +43,7 @@ function PostingPage() {
 
   const handleSubmitAddPost = async () => {
     if (formValidation()) {
-      await addPostsAxios(post); // 서버에 추가
-      dispatch(addPost(post)); // posts reducer에 추가
-      resetPost(); // usePost 초기화
-      alert("포스팅 성공!");
+      mutation.mutate(post); //서버에 추가 요청
     }
   };
 

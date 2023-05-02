@@ -1,19 +1,20 @@
 import axios from "axios";
 // test
-export const Axios = axios.create({
+const Axios = axios.create({
   baseURL: process.env.REACT_APP_SERVER_URL,
 });
 
-export const getPostsAxios = async () => {
+const getPostsAxios = async () => {
   try {
-    return await Axios.get("/posts");
+    const { data } = await Axios.get("/posts");
+    return data;
   } catch (error) {
     console.log("axios getPosts Error :", error);
     throw error;
   }
 };
 
-export const getPostAxios = async (id) => {
+const getPostAxios = async (id) => {
   try {
     const { data } = await Axios.get("/posts");
     const post = data.find((post) => post.id == id);
@@ -24,7 +25,7 @@ export const getPostAxios = async (id) => {
   }
 };
 
-export const addPostsAxios = async (post) => {
+const addPostsAxios = async (post) => {
   try {
     await Axios.post("/posts", post);
   } catch (error) {
@@ -33,7 +34,7 @@ export const addPostsAxios = async (post) => {
   }
 };
 
-export const deletePostAxios = async (id) => {
+const deletePostAxios = async (id) => {
   try {
     await Axios.delete(`/posts/${id}`);
   } catch (error) {
@@ -42,11 +43,19 @@ export const deletePostAxios = async (id) => {
   }
 };
 
-export const updatePostAxios = async (id, payload) => {
+const updatePostAxios = async (payload) => {
   try {
-    await Axios.patch(`/posts/${id}`, payload);
+    await Axios.patch(`/posts/${payload.id}`, payload);
   } catch (error) {
     console.log("axios getPost Error :", error);
     throw error;
   }
+};
+
+export {
+  getPostsAxios,
+  getPostAxios,
+  addPostsAxios,
+  deletePostAxios,
+  updatePostAxios,
 };

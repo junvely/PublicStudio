@@ -1,32 +1,28 @@
 import { getPostsAxios } from "../axios/api";
-import React, { useEffect } from "react";
 import Post from "redux/components/Post";
 import Footer from "redux/components/common/Footer";
 import { StPostsCon } from "styles/Components";
-import { StPositionSec } from "styles/GlobalStyles";
-import { fetchPosts } from "redux/modules/postsSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { ErrorMessage, StFlexCenter, StPositionSec } from "styles/GlobalStyles";
+import { useQuery } from "react-query";
 
 function PostsPage() {
-  const dispatch = useDispatch();
-
-  // 서버의 posts 데이터를 reducer에 fetch하는 함수
-  const getPostsData = async () => {
-    const { data } = await getPostsAxios();
-    dispatch(fetchPosts(data)); // 서버데이터 posts reducer에 패치
-  };
-
-  const posts = useSelector((state) => state.postsSlice.posts);
-
-  useEffect(() => {
-    getPostsData();
-  }, [dispatch]);
+  const { isLoading, isError, data } = useQuery("posts", getPostsAxios);
 
   return (
     <div>
       <StPositionSec>
         <StPostsCon>
-          {posts.map((post) => {
+          {/* 에러 페이지 처리 */}
+          {(isLoading || isError) && (
+            <StFlexCenter>
+              <ErrorMessage>
+                {isLoading
+                  ? "🔵 Loding . . ."
+                  : "❗Error : 서버 Error발생으로 인하여 데이터를 가져올 수 없습니다."}
+              </ErrorMessage>
+            </StFlexCenter>
+          )}
+          {data?.map((post) => {
             return <Post key={post.id} post={post} isActive={true}></Post>;
           })}
         </StPostsCon>
