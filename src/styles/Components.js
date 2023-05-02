@@ -28,6 +28,7 @@ export const StPosts = styled.div`
     height: 500px;
     margin-left: 10%;
     border-radius: 10px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
     transition: all 0.3s;
     -webkit-filter: grayscale(100%);
     filter: gray;
@@ -251,13 +252,31 @@ export const StModal = styled.div``;
 
 // NewPostsList
 export const StNewPostsCon = styled.div`
-  width: 50%;
+  width: 100%;
+  font-weight: 500;
   li {
     width: 25%;
   }
   p {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-family: ${Fonts.notoSans};
     color: ${Colors.darkGray};
+  }
+`;
+
+export const StNewPostList = styled.div`
+  width: 200px;
+  text-align: center;
+  font-family: ${Fonts.palyFair};
+  font-weight: 800;
+  margin-right: 30px;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+  & a:hover {
+    color: ${Colors.gray};
   }
 `;
 
