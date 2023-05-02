@@ -22,7 +22,6 @@ const postSlice = createSlice({
       };
     },
     updatePost: (state, action) => {
-      console.log(action.payload);
       return {
         ...state,
         post: action.payload,

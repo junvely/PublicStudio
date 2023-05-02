@@ -25,11 +25,22 @@ function PostingPage() {
   // usePost custom Hook
   const [post, handleInputChange, resetPost] = usePost(initialState);
 
+  // 폼 유효성 검사
+  const formValidation = () => {
+    if (!post.title || !post.contents || !post.imgURL) {
+      alert("입력란을 모두 작성해 주세요!");
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmitAddPost = async () => {
-    await addPostsAxios(post); // 서버에 추가
-    dispatch(addPost(post)); // posts reducer에 추가
-    resetPost(); // usePost 초기화
-    alert("포스팅 성공!");
+    if (formValidation()) {
+      await addPostsAxios(post); // 서버에 추가
+      dispatch(addPost(post)); // posts reducer에 추가
+      resetPost(); // usePost 초기화
+      alert("포스팅 성공!");
+    }
   };
 
   return (

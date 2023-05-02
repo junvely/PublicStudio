@@ -23,9 +23,6 @@ function DetailPage() {
   const { id } = useParams();
 
   // param.id로 서버에서 post가져와서 post reducer에 저장
-  // 다른 컴포넌트에서도 사용가능
-  // ex) DetailPage에 props으로 전달할 경우 의존성 및 불필요한 렌더링 발생을 방지
-  // 다른 컴포넌트에 props으로 전달하지 않고 state에 접근해 사용하게 하기 위함
   const getPostData = async () => {
     const data = await getPostAxios(id);
     dispatch(setPost(data)); //post reducer에 저장

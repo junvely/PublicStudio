@@ -9,12 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 function PostsPage() {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.postsSlice.posts);
 
+  // 서버의 posts 데이터를 reducer에 fetch하는 함수
   const getPostsData = async () => {
     const { data } = await getPostsAxios();
     dispatch(fetchPosts(data)); // 서버데이터 posts reducer에 패치
   };
+
+  const posts = useSelector((state) => state.postsSlice.posts);
 
   useEffect(() => {
     getPostsData();
