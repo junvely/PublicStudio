@@ -22,19 +22,14 @@ const postSlice = createSlice({
       };
     },
     updatePost: (state, action) => {
+      console.log(action.payload);
       return {
         ...state,
         post: action.payload,
-      };
-    },
-    clearPost: (state) => {
-      return {
-        ...state,
-        post: initialState,
       };
     },
   },
 });
 
 export default postSlice.reducer;
-export const { setPost } = postSlice.actions;
+export const { setPost, updatePost } = postSlice.actions;

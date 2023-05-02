@@ -27,7 +27,6 @@ export const getPostAxios = async (id) => {
 export const addPostsAxios = async (post) => {
   try {
     await Axios.post("/posts", post);
-    console.log("추가 성공");
   } catch (error) {
     console.log("axios addPosts Error :", error);
     throw error;
@@ -39,6 +38,16 @@ export const deletePostAxios = async (id) => {
     await Axios.delete(`/posts/${id}`);
   } catch (error) {
     console.log("axios deletePost Error :", error);
+    throw error;
+  }
+};
+
+export const updatePostAxios = async (id, payload) => {
+  try {
+    await Axios.patch(`/posts/${id}`, payload);
+    console.log("수정 완료!");
+  } catch (error) {
+    console.log("axios getPost Error :", error);
     throw error;
   }
 };

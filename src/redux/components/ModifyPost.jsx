@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   StButtonCon,
   StDelete,
@@ -7,20 +6,40 @@ import {
 } from "styles/Components";
 import { StDetailCon } from "styles/GlobalStyles";
 import Button from "./common/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { usePost } from "redux/hooks/useInput";
+import { updatePostAxios } from "../../axios/api";
+import { updatePost } from "redux/modules/postSlice";
 
 function ModifyPost({ modalToggle }) {
-  const post = useSelector((state) => state.postSlice.post);
-  const [updatePost, handleInputChange] = usePost(post);
+  const beforePost = useSelector((state) => state.postSlice.post);
+  const [newPost, handleInputChange, resetPost] = usePost(beforePost);
 
+  const resetState = {
+    id: 0,
+    userName: "Master",
+    title: "",
+    contents: "",
+    imgURL: "",
+    date: "",
+  };
+
+  const dispatch = useDispatch();
+
+  //서버 데이터 수정
+  const updatePostData = async (newPost) => {
+    await updatePostAxios(newPost.id, newPost);
+  };
+
+  // 수정된 newPost로 post reducer 수정, 서버에 전송
   const handleClickSaveButton = () => {
-    modalToggle();
-    // 수정 로직
+    dispatch(updatePost(newPost)); // post reducer 수정
+    updatePostData(newPost); // 서버에 수정 요청하는 함수
+    resetPost(resetState); // usePost 초기화
+    modalToggle(); // toggle 닫기
     alert("수정되었습니다!");
   };
 
-  console.log(updatePost);
   return (
     <>
       <StoutCon>
@@ -32,7 +51,7 @@ function ModifyPost({ modalToggle }) {
               <span> Title : </span>
               <input
                 name="title"
-                value={updatePost.title}
+                value={newPost.title}
                 onChange={handleInputChange}
               ></input>
             </div>
@@ -43,7 +62,7 @@ function ModifyPost({ modalToggle }) {
                 cols="50"
                 rows="5"
                 name="contents"
-                value={updatePost.contents}
+                value={newPost.contents}
                 onChange={handleInputChange}
                 placeholder="수정할 내용을 입력해 주세요."
               ></textarea>

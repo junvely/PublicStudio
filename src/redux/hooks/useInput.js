@@ -8,8 +8,8 @@ export const usePost = (initialState) => {
     setPost({ ...post, [name]: value });
   };
 
-  const reset = () => {
-    setPost(initialState);
+  const reset = (resetState = initialState) => {
+    setPost(resetState);
   };
 
   return [post, handler, reset];

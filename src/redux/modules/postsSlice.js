@@ -26,9 +26,9 @@ const postsSlice = createSlice({
         posts: state.posts.filter((post) => post.id !== action.payload),
       };
     },
-    updatePost: (state, action) => {
-      return;
-    },
+    // updatePost: (state, action) => {
+    //   return;
+    // },
   },
 });
 
