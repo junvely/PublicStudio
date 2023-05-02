@@ -1,15 +1,15 @@
 import { deletePostAxios } from "../../axios/api";
-import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { StClose, StPost, StPostTitle } from "styles/Components";
+import { StDelete, StPost, StPostTitle } from "styles/Components";
 import { deletePost } from "redux/modules/postsSlice";
 
+// post reducer에 값이 들어오기 전에 posts 컴포넌트에서 사용되기 때문에 props으로 전달받는다.
 function Post({ post, width, isActive }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onClickdeletePost = async (id) => {
+  const handleClickDeletePost = async (id) => {
     await deletePostAxios(id);
     dispatch(deletePost(id));
   };
@@ -22,14 +22,14 @@ function Post({ post, width, isActive }) {
       width={width}
     >
       {isActive && (
-        <StClose
+        <StDelete
           onClick={(e) => {
             e.stopPropagation();
-            onClickdeletePost(post.id);
+            handleClickDeletePost(post.id);
           }}
         >
           X
-        </StClose>
+        </StDelete>
       )}
       <img src={post.imgURL} alt="poto"></img>
       <StPostTitle>

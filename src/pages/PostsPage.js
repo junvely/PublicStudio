@@ -13,12 +13,12 @@ function PostsPage() {
 
   const getPostsData = async () => {
     const { data } = await getPostsAxios();
-    dispatch(fetchPosts(data));
+    dispatch(fetchPosts(data)); // 서버데이터 posts reducer에 패치
   };
 
   useEffect(() => {
     getPostsData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

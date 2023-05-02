@@ -1,10 +1,18 @@
 import React, { useState } from "react";
-import { StButtonCon, StClose, StModifyCon, StoutCon } from "styles/Components";
+import {
+  StButtonCon,
+  StDelete,
+  StModifyCon,
+  StoutCon,
+} from "styles/Components";
 import { StDetailCon } from "styles/GlobalStyles";
 import Button from "./common/Button";
+import { useSelector } from "react-redux";
+import { usePost } from "redux/hooks/useInput";
 
-function Modal({ post, modalToggle }) {
-  const [contents, setContents] = useState(post.contents);
+function ModifyPost({ modalToggle }) {
+  const post = useSelector((state) => state.postSlice.post);
+  const [updatePost, handleInputChange] = usePost(post);
 
   const handleClickSaveButton = () => {
     modalToggle();
@@ -12,16 +20,21 @@ function Modal({ post, modalToggle }) {
     alert("수정되었습니다!");
   };
 
+  console.log(updatePost);
   return (
     <>
       <StoutCon>
         <StDetailCon>
           {/* 닫기 버튼 */}
-          <StClose onClick={modalToggle}>X</StClose>
+          <StDelete onClick={modalToggle}>X</StDelete>
           <StModifyCon>
             <div>
               <span> Title : </span>
-              <p>{post.title}</p>
+              <input
+                name="title"
+                value={updatePost.title}
+                onChange={handleInputChange}
+              ></input>
             </div>
             <span> Contents : </span>
             <div>
@@ -29,10 +42,9 @@ function Modal({ post, modalToggle }) {
               <textarea
                 cols="50"
                 rows="5"
-                value={contents}
-                onChange={(e) => {
-                  setContents(e.target.value);
-                }}
+                name="contents"
+                value={updatePost.contents}
+                onChange={handleInputChange}
                 placeholder="수정할 내용을 입력해 주세요."
               ></textarea>
             </div>
@@ -48,4 +60,4 @@ function Modal({ post, modalToggle }) {
   );
 }
 
-export default Modal;
+export default ModifyPost;

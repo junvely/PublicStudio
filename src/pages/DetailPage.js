@@ -1,11 +1,12 @@
 import { getPostAxios } from "../axios/api";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import AirBox from "redux/components/common/AirBox";
 import Button from "redux/components/common/Button";
 import Footer from "redux/components/common/Footer";
-import Modal from "redux/components/Modal";
 import Post from "redux/components/Post";
+import { setPost } from "redux/modules/postSlice";
 import { StButtonCon, StModifyCon } from "styles/Components";
 import {
   ErrorMessage,
@@ -14,21 +15,28 @@ import {
   StFlexCon,
   StPositionSec,
 } from "styles/GlobalStyles";
+import ModifyPost from "redux/components/ModifyPost";
 
-function PostPage() {
+function DetailPage() {
   const [modalToggle, setModalToggle] = useState(false);
-  const [post, setPost] = useState();
-
-  // param.id로 post가져오기
+  const dispatch = useDispatch();
   const { id } = useParams();
+
+  // param.id로 서버에서 post가져와서 post reducer에 저장
+  // 다른 컴포넌트에서도 사용가능
+  // ex) DetailPage에 props으로 전달할 경우 의존성 및 불필요한 렌더링 발생을 방지
+  // 다른 컴포넌트에 props으로 전달하지 않고 state에 접근해 사용하게 하기 위함
   const getPostData = async () => {
     const data = await getPostAxios(id);
-    setPost(data);
+    dispatch(setPost(data)); //post reducer에 저장
   };
+
+  // reducer에 저장된 post 가져오기
+  const post = useSelector((state) => state.postSlice.post);
 
   useEffect(() => {
     getPostData();
-  }, []);
+  }, [dispatch, id]);
 
   const onClickModifyButton = () => {
     setModalToggle(!modalToggle);
@@ -70,7 +78,7 @@ function PostPage() {
             </StFlexCon>
             {/* Modal */}
             {modalToggle && (
-              <Modal post={post} modalToggle={onClickModifyButton}></Modal>
+              <ModifyPost modalToggle={onClickModifyButton}></ModifyPost>
             )}
           </StPositionSec>
           <Footer />
@@ -80,4 +88,4 @@ function PostPage() {
   );
 }
 
-export default PostPage;
+export default DetailPage;

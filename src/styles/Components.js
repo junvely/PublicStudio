@@ -227,7 +227,7 @@ export const StoutCon = styled.div`
   background-color: ${Colors.opacityBlack};
 `;
 
-export const StClose = styled.span`
+export const StDelete = styled.span`
   width: 30px;
   line-height: 30px;
   text-align: center;

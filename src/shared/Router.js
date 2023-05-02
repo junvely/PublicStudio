@@ -1,14 +1,14 @@
-import FormPage from "pages/FormPage";
 import IntroPage from "pages/IntroPage";
 import MainPage from "pages/MainPage";
-import PostPage from "pages/PostPage";
 import PostsPage from "pages/PostsPage";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "redux/components/common/Header";
+import Header from "redux/components/Header";
 import { StLayout } from "styles/Components";
 import { StFlexWrap, StSection } from "styles/GlobalStyles";
 import { Colors } from "styles/Them";
+import DetailPage from "pages/DetailPage";
+import PostingPage from "pages/PostingPage";
 
 function Router() {
   return (
@@ -22,8 +22,8 @@ function Router() {
                 <Route path="/" element={<MainPage />}></Route>
                 <Route path="/intro" element={<IntroPage />}></Route>
                 <Route path="/posts" element={<PostsPage />}></Route>
-                <Route path="/posts/:id" element={<PostPage />}></Route>
-                <Route path="/form" element={<FormPage />}></Route>
+                <Route path="/posts/:id" element={<DetailPage />}></Route>
+                <Route path="/form" element={<PostingPage />}></Route>
               </Routes>
             </StSection>
           </StLayout>
