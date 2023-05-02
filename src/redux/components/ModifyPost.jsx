@@ -57,16 +57,6 @@ function ModifyPost({ id, modalToggle }) {
         <StDetailCon>
           {/* 닫기 버튼 */}
           <StDelete onClick={modalToggle}>X</StDelete>
-          {/* 에러 페이지 처리 */}
-          {(isLoading || isError) && (
-            <StFlexCenter>
-              <ErrorMessage>
-                {isLoading
-                  ? "🔵 Loding . . ."
-                  : "❗Error : 서버 Error발생으로 인하여 데이터를 가져올 수 없습니다."}
-              </ErrorMessage>
-            </StFlexCenter>
-          )}
           {/* 수정 모달 */}
           <StModifyCon>
             <div>

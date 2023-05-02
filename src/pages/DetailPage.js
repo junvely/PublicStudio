@@ -38,6 +38,7 @@ function DetailPage() {
               ? "🔵 Loding . . ."
               : "❗Error : 서버 Error발생으로 인하여 데이터를 가져올 수 없습니다."}
           </ErrorMessage>
+          <Footer />
         </StFlexCenter>
       ) : (
         <>
