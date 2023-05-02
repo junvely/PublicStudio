@@ -22,7 +22,7 @@ function PostingPage() {
     date: today.toLocaleDateString(),
   };
 
-  // usePost custom Hook
+  // custom Hook
   const [post, handleInputChange, resetPost] = usePost(initialState);
 
   // 폼 유효성 검사

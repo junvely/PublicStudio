@@ -6,6 +6,8 @@ import { StFlexCon } from "styles/GlobalStyles";
 
 function NewPostsList({ isActive }) {
   const postList = useSelector((state) => state.postsSlice.posts).slice(0, 4);
+  // Posts최신순
+  const newList = [...postList].reverse().slice(0, 4);
 
   return (
     <StNewPostsCon>
@@ -23,7 +25,7 @@ function NewPostsList({ isActive }) {
           })}
         </StFlexCon>
       ) : (
-        <p> Pulic Studio에서 당신의 감성을 공유해 보세요. </p>
+        <p> Public Studio에서 당신의 감성을 공유해 보세요. </p>
       )}
     </StNewPostsCon>
   );

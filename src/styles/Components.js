@@ -39,12 +39,19 @@ export const StPosts = styled.div`
       -webkit-filter: grayscale(0);
     }
     p {
-      font-size: 2rem;
+      font-size: 3rem;
       line-height: 500px;
       text-align: center;
-      font-weight: 400;
+      font-weight: 600;
       font-family: ${Fonts.roboto};
       color: ${Colors.white};
+      text-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+        0 6px 6px rgba(0, 0, 0, 0.23);
+      transition: all 0.3s;
+
+      &:hover {
+        color: ${Colors.black};
+      }
     }
   }
 
