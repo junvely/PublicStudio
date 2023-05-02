@@ -45,7 +45,6 @@ export const deletePostAxios = async (id) => {
 export const updatePostAxios = async (id, payload) => {
   try {
     await Axios.patch(`/posts/${id}`, payload);
-    console.log("수정 완료!");
   } catch (error) {
     console.log("axios getPost Error :", error);
     throw error;

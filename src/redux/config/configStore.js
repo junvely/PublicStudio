@@ -4,6 +4,7 @@ const { configureStore } = require("@reduxjs/toolkit");
 
 const store = configureStore({
   reducer: { postsSlice, postSlice },
+  devTools: process.env.NODE_ENV !== "production",
 });
 
 export default store;
