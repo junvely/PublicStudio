@@ -6,7 +6,7 @@
 
 #### 로그인 페이지
 
-<!-- ## <img src="./static/img/login.jpg" /> -->
+## <img src="./public/img/main.jpg" />
 
 #### 메인 페이지
 
