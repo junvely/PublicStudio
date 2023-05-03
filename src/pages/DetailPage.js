@@ -20,7 +20,9 @@ function DetailPage() {
   const [modalToggle, setModalToggle] = useState(false);
   const { id } = useParams();
 
-  const { isLoading, isError, data } = useQuery("post", () => getPostAxios(id));
+  const { isLoading, isError, data } = useQuery(`/posts/post:${id}`, () =>
+    getPostAxios(id)
+  );
 
   const onClickModifyButton = () => {
     setModalToggle(!modalToggle);
@@ -62,7 +64,7 @@ function DetailPage() {
                 {/* Modify버튼 */}
                 <StButtonCon>
                   <Button width="40%" onClick={onClickModifyButton}>
-                    Modify
+                    Update
                   </Button>
                 </StButtonCon>
               </StDetailCon>

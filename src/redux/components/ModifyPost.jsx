@@ -4,14 +4,16 @@ import {
   StModifyCon,
   StoutCon,
 } from "styles/Components";
-import { ErrorMessage, StDetailCon, StFlexCenter } from "styles/GlobalStyles";
+import { StDetailCon } from "styles/GlobalStyles";
 import Button from "./common/Button";
 import { usePost } from "redux/hooks/useInput";
 import { getPostAxios, updatePostAxios } from "../../axios/api";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 
 function ModifyPost({ id, modalToggle }) {
-  const { isLoading, isError, data } = useQuery("post", () => getPostAxios(id));
+  const { isLoading, isError, data } = useQuery(`/posts/post:${id}`, () =>
+    getPostAxios(id)
+  );
   const [newPost, handleInputChange, resetPost] = usePost(data);
 
   const resetState = {

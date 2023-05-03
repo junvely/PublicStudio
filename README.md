@@ -18,7 +18,7 @@
 
 ### 패키지 설치
 
-1. 상태 관리 : redux-tookit
+1. 상태 관리 : redux-toolkit, react-query
 2. Routing : react-router-dom
 3. 데이터 통신 : axios
 4. Server : JSON-server
@@ -44,68 +44,63 @@ yarn json-server --watch db.json --port 4000
 
 (3) 배포 - json-server 서버 배포 (heroku 사용) - 리액트 프로젝트 배포 (S3, vercel 등 자유)
 
-### 요구사항
-
-- **동적 라우팅을 사용**하세요.
-- 1개 이상의 `Custom Hook`을 구현하세요.
-- **Form에 유효성 검증 기능을 적용**하세요. _유효성 검증이란, 아래의 예시들을 의미합니다._
-  - ex: 제목을 10글자 이상 기입하지 않으면, 글을 추가할 수 없도록 제한 → `Alert` 으로 안내
-  - ex: Form에서 모든 input에 값을 입력하지 않으면, 버튼이 비활성화
-- 버튼 **컴포넌트 1개로 모든 버튼을 구현**하세요. 모든 스타일과 기능을 버튼을 구현할 수 있는 **만능 버튼**을 만들어보는 것 입니다.
-- `development` 환경에서만 `redux devtool`이 활성화 되도록 처리합니다.
-- 배포된 결과물에서는 `console.log()` 가 보이지 않도록 처리합니다.
-- `.env` 를 이용해서 API 서버의 URL 코드상에서 숨기도록 처리합니다.
-- API 명세서 (프로젝트 완료 후 작성)
-
 ## ✨ Page 및 컴포넌트 설계
 
 ### Page 설계
 
-- MainPage
 - IntroPage
+- MainPage
 - PostsPage
-- PostPage
-- FormPage
+- PostingPage
+- DetailPage
 
 ### common 컴포넌트 설계
 
-- Header
-- Footer
 - AirBox
 - Button
-- Section(styled)
-- InnerCon(styled)
-- FlexCon(styled)
+- Footer
 
 ### 컴포넌트 설계
 
+- Header
 - Input
 - Post
-- NewPosts
-- Modal
+- NewPostsList
+- ModifyPost
 
 ## ✨ 기능 구현 목표
 
+#### IntroPage
+
 #### MainPage
 
-#### IntroPage
+- 페이지 라우팅 : 포스팅 리스트, 포스팅 추가 페이지로 이동
 
 #### PostsPage
 
-#### PostPage
+- 본문 리스트 조회 하기
+
+- 본문 삭제 하기
+
+#### PostingPage
+
+- 본문 추가 하기
 
 #### DetailPage
 
-#### FormPage
+- 본문 조회 하기
 
-## 🖇️ Redux 전역 상태 관리
+- 본문 수정 하기
+
+## 🖇️ Redux 전역 상태 관리 -> react query 리팩토링
 
 1. posts => posts, post
 
-2. modals => modal
+<br />
 
 ### Commit Convention
 
+```
 Feat : 새로운 기능을 추가할 경우
 Fix : 버그를 고친 경우
 Design : CSS 등 사용자 UI 디자인 변경
@@ -113,3 +108,4 @@ Refactor : 프로덕션 코드 리팩토링
 Docs : 문서를 수정한 경우
 Rename : 파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우
 Remove : 파일을 삭제하는 작업만 수행한 경우
+```
