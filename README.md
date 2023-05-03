@@ -1,4 +1,4 @@
-## Public Studio 📷
+## 📷 Public Studio
 
 ### 1. 프로젝트 Description
 
@@ -109,7 +109,7 @@ yarn json-server --watch db.json --port 4000
 
 <br />
 
-### Commit Convention
+## ✅ Commit Convention
 
 ```
 Feat : 새로운 기능을 추가할 경우
