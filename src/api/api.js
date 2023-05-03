@@ -18,7 +18,7 @@ const getPostAxios = async (id) => {
   try {
     const { data } = await Axios.get("/posts");
     // eslint-disable-next-line
-    const post = data.find((post) => post.id == id);
+    const post = data.find((post) => post.id === +id);
     return post;
   } catch (error) {
     console.log("axios getPost Error :");
