@@ -14,6 +14,8 @@
 
 2023.04.30 ~ 2023.05.04
 
+<br />
+
 ## 🕹️ Stack
 
 ### 패키지 설치
@@ -26,6 +28,7 @@
 
 ```
 yarn add styled-components
+yarn add react-query
 yarn add redux react-redux
 yarn add react-router-dom
 yarn add @reduxjs/toolkit
@@ -33,6 +36,8 @@ yarn add axios
 yarn add json-server
 yarn json-server --watch db.json --port 4000
 ```
+
+<br />
 
 ## 💡 요구사항
 
@@ -43,6 +48,8 @@ yarn json-server --watch db.json --port 4000
 (2) CRUD 구현 - 본문 리스트 조회 하기 - 본문 조회 하기 - 본문 추가 하기 - 본문 삭제 하기 - 본문 수정 하기
 
 (3) 배포 - json-server 서버 배포 (heroku 사용) - 리액트 프로젝트 배포 (S3, vercel 등 자유)
+
+<br />
 
 ## ✨ Page 및 컴포넌트 설계
 
@@ -68,6 +75,8 @@ yarn json-server --watch db.json --port 4000
 - NewPostsList
 - ModifyPost
 
+<br />
+
 ## ✨ 기능 구현 목표
 
 #### IntroPage
@@ -91,6 +100,8 @@ yarn json-server --watch db.json --port 4000
 - 본문 조회 하기
 
 - 본문 수정 하기
+
+<br />
 
 ## 🖇️ Redux 전역 상태 관리 -> react query 리팩토링
 
