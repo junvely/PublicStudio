@@ -2,8 +2,8 @@ import Button from "redux/components/common/Button";
 import Footer from "redux/components/common/Footer";
 import { StButtonCon, StModifyCon } from "styles/Components";
 import { StDetailCon, StFlexCenter, StPositionSec } from "styles/GlobalStyles";
-import { addPostsAxios } from "../axios/api";
-import { usePost } from "redux/hooks/useInput";
+import { addPostsAxios } from "../api/api";
+import { usePost } from "redux/hooks/usePost";
 import { v4 as uuidv4 } from "uuid";
 import { useMutation, useQueryClient } from "react-query";
 

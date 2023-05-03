@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Colors, Fonts } from "./Them";
-
 // Pages
 // MainPage
 export const StMainTitle = styled.div`

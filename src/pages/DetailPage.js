@@ -1,4 +1,4 @@
-import { getPostAxios } from "../axios/api";
+import { getPostAxios } from "../api/api";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import AirBox from "redux/components/common/AirBox";
@@ -13,7 +13,7 @@ import {
   StFlexCon,
   StPositionSec,
 } from "styles/GlobalStyles";
-import ModifyPost from "redux/components/ModifyPost";
+import ModifyPost from "redux/components/UpdatePost";
 import { useQuery } from "react-query";
 
 function DetailPage() {
@@ -30,19 +30,7 @@ function DetailPage() {
 
   return (
     <>
-      {/* 에러 페이지 처리 */}
-      {!data || isLoading || isError ? (
-        <StFlexCenter>
-          <ErrorMessage>
-            {!data
-              ? "❗Not Found :해당하는 페이지 정보가 없습니다."
-              : isLoading
-              ? "🔵 Loding . . ."
-              : "❗Error : 서버 Error발생으로 인하여 데이터를 가져올 수 없습니다."}
-          </ErrorMessage>
-          <Footer />
-        </StFlexCenter>
-      ) : (
+      {data ? (
         <>
           <StPositionSec position={true}>
             <StFlexCon padding="1% 0 1% 15%">
@@ -79,6 +67,20 @@ function DetailPage() {
           </StPositionSec>
           <Footer />
         </>
+      ) : (
+        /* 에러 페이지 처리 */
+        (!data || isLoading || isError) && (
+          <StFlexCenter>
+            <ErrorMessage>
+              {!data
+                ? "❗Not Found :해당하는 페이지 정보가 없습니다."
+                : isLoading
+                ? "🔵 Loading . . ."
+                : "❗Error : 서버 Error발생으로 인하여 데이터를 가져올 수 없습니다."}
+            </ErrorMessage>
+            <Footer />
+          </StFlexCenter>
+        )
       )}
     </>
   );

@@ -1,4 +1,4 @@
-import { getPostsAxios } from "../axios/api";
+import { getPostsAxios } from "../api/api";
 import Post from "redux/components/Post";
 import Footer from "redux/components/common/Footer";
 import { StPostsCon } from "styles/Components";
@@ -12,19 +12,20 @@ function PostsPage() {
     <div>
       <StPositionSec>
         <StPostsCon>
-          {/* 에러 페이지 처리 */}
-          {(isLoading || isError) && (
-            <StFlexCenter>
-              <ErrorMessage>
-                {isLoading
-                  ? "🔵 Loding . . ."
-                  : "❗Error : 서버 Error발생으로 인하여 데이터를 가져올 수 없습니다."}
-              </ErrorMessage>
-            </StFlexCenter>
-          )}
-          {data?.map((post) => {
-            return <Post key={post.id} post={post} isActive={true}></Post>;
-          })}
+          {data
+            ? data?.map((post) => {
+                return <Post key={post.id} post={post} isActive={true}></Post>;
+              })
+            : /* 에러 페이지 처리 */
+              (isLoading || isError) && (
+                <StFlexCenter>
+                  <ErrorMessage>
+                    {isLoading
+                      ? "🔵 Loading . . ."
+                      : "❗Error : 서버 Error발생으로 인하여 데이터를 가져올 수 없습니다."}
+                  </ErrorMessage>
+                </StFlexCenter>
+              )}
         </StPostsCon>
       </StPositionSec>
       <Footer isActive={true}></Footer>

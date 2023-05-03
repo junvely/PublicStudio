@@ -1,4 +1,4 @@
-import { getPostsAxios } from "../../axios/api";
+import { getPostsAxios } from "../../api/api";
 import React from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ function NewPostsList({ isActive }) {
 
   const postList = [...data].slice(0, 4);
   // Posts최신순으로 변경하고 싶을 경우
-  const newList = [...postList].reverse().slice(0, 4);
+  // const newList = [...postList].reverse().slice(0, 4);
 
   return (
     <StNewPostsCon>
