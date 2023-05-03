@@ -6,7 +6,7 @@
 
 #### 로그인 페이지
 
-## <img src="./public/img/main.jpg" />
+## <img src="./public/img/main.gif" />
 
 #### 메인 페이지
 

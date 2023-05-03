@@ -6,7 +6,7 @@ import { StNewPostList, StNewPostsCon } from "styles/Components";
 import { StFlexCon } from "styles/GlobalStyles";
 
 function NewPostsList({ isActive }) {
-  const { isLoading, isError, data } = useQuery("posts", getPostsAxios);
+  const { data } = useQuery("posts", getPostsAxios);
   // data가 할당되기 전 undefined일 경우 에러가 발생하지 않도록 핸들링
   if (!data) {
     return;
