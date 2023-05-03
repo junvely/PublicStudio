@@ -33,7 +33,7 @@
       "date": "2023.5.1"
     },
     {
-      "id": "f1d1013e-2d6b-481d-a62a-1d55afb0a917",
+      "id": 5,
       "userName": "Master",
       "title": "Test IMGURL",
       "contents": "Test imge URL Test imge URL Test imge URL Test imge URL",
@@ -41,7 +41,7 @@
       "date": "2023. 5. 2."
     },
     {
-      "id": "85703c38-1293-4d99-8b9a-585456c7f49f",
+      "id": 6,
       "userName": "Master",
       "title": "Test IMGURL",
       "contents": "Test IMGURL Test IMGURL Test IMGURL Test IMGURL",
@@ -49,7 +49,7 @@
       "date": "2023. 5. 2."
     },
     {
-      "id": "51ba9a4c-94e7-4585-b79a-f082d28a1cd6",
+      "id": 7,
       "userName": "Master",
       "title": "ㅁㄴㅇㄹ",
       "contents": "ㅁㄴㅇㄻㄴㅇ",
@@ -57,7 +57,7 @@
       "date": "2023. 5. 2."
     },
     {
-      "id": "137f0ec3-e370-4028-b7c2-1bcf100d52c2",
+      "id": 8,
       "userName": "Master",
       "title": "ㅇㅇㅇㅇㅇㅋㅋ",
       "contents": "ㅇㅇ",

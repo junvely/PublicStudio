@@ -46,7 +46,6 @@ function PostingPage() {
       mutation.mutate(post); //서버에 추가 요청
     }
   };
-
   return (
     <>
       <StPositionSec>
@@ -69,7 +68,6 @@ function PostingPage() {
                   onChange={handleInputChange}
                 ></input>
               </div>
-
               <div>
                 <span> Title : </span>
                 <input
