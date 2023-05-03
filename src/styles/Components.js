@@ -75,7 +75,7 @@ export const StModifyCon = styled.div`
   span {
     display: block;
     padding: 0 3%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: ${Fonts.rogotoSlab};
     margin-right: 3%;
   }
@@ -83,8 +83,8 @@ export const StModifyCon = styled.div`
   p {
     width: 60%;
     height: 100%;
-    font-size: 1.2rem;
-    line-height: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
     word-break: break-all;
     word-wrap: break-word;
   }
@@ -215,9 +215,13 @@ export const StPostTitle = styled.div`
     font-weight: 700;
   }
   p {
-    margin-top: 5px;
+    margin: 5px;
     font-size: 0.8rem;
     font-weight: 400;
+  }
+  span {
+    color: ${Colors.gray};
+    font-size: 0.9rem;
   }
 `;
 

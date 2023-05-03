@@ -11,7 +11,7 @@ function PostingPage() {
   let today = new Date();
   const initialState = {
     id: uuidv4(),
-    userName: "Master",
+    userName: "",
     title: "",
     contents: "",
     imgURL: "",
@@ -54,6 +54,14 @@ function PostingPage() {
           <StDetailCon>
             <StModifyCon>
               <div>
+                <span> User Name : </span>
+                <input
+                  name="userName"
+                  value={post.userName}
+                  onChange={handleInputChange}
+                ></input>
+              </div>
+              <div>
                 <span> Image URL : </span>
                 <input
                   name="imgURL"
@@ -61,6 +69,7 @@ function PostingPage() {
                   onChange={handleInputChange}
                 ></input>
               </div>
+
               <div>
                 <span> Title : </span>
                 <input
@@ -73,7 +82,7 @@ function PostingPage() {
               <div>
                 <textarea
                   cols="50"
-                  rows="5"
+                  rows="3"
                   name="contents"
                   value={post.contents}
                   onChange={handleInputChange}

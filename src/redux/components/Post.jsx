@@ -42,6 +42,7 @@ function Post({ post, width, isActive }) {
       <StPostTitle>
         <h3>{post.title}</h3>
         <p>{post.userName}</p>
+        <span>{post.date}</span>
       </StPostTitle>
     </StPost>
   );
