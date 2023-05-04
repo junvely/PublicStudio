@@ -25,9 +25,9 @@ const getPostAxios = async (id) => {
   }
 };
 
-const addPostsAxios = async (post) => {
+const addPostsAxios = async (payload) => {
   try {
-    await Axios.post("/posts", post);
+    await Axios.post("/posts", payload);
   } catch (error) {
     console.log("axios addPost Error :");
     throw error;
