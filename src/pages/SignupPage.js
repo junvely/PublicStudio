@@ -1,4 +1,7 @@
+import { signupAxios } from "api/auth";
 import React, { useMemo } from "react";
+import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
 import LabelInput from "redux/components/LabelInput";
 import AirBox from "redux/components/common/AirBox";
 import Button from "redux/components/common/Button";
@@ -11,6 +14,22 @@ import {
 } from "styles/Components";
 
 function SignupPage() {
+  const navigate = useNavigate();
+  const mutation = useMutation(signupAxios, {
+    onSuccess: (result) => {
+      if (result.isSuccess) {
+        alert("회원가입이 완료되었습니다.");
+        resetForm();
+        navigate("/account/login");
+      } else {
+        alert("중복되는 아이디가 존재합니다.");
+      }
+    },
+    onError: () => {
+      alert("Error : 서버 에러 발생");
+    },
+  });
+
   const initialState = {
     userName: "",
     id: "",
@@ -18,48 +37,50 @@ function SignupPage() {
     pwCheck: "",
   };
 
-  const [inputs, handleInputChange, resetForm] = useInputs(initialState);
+  const [userInfo, handleInputChange, resetForm] = useInputs(initialState);
 
   const idMessage = useMemo(() => {
-    if ((inputs.id && inputs.id.length < 5) || inputs.id.length >= 10) {
+    if ((userInfo.id && userInfo.id.length < 5) || userInfo.id.length >= 10) {
       return "ID는 5글자 이상 10글자 이하 입니다.";
     } else {
       return "";
     }
-  }, [inputs.id]);
+  }, [userInfo.id]);
 
   const pwMessage = useMemo(() => {
-    if (inputs.pw && inputs.pw.length < 5) {
+    if (userInfo.pw && userInfo.pw.length < 5) {
       return "PW는 5글자 이상입니다.";
     } else {
       return "";
     }
-  }, [inputs.pw]);
+  }, [userInfo.pw]);
 
   const pwCheckMessage = useMemo(() => {
-    if (inputs.pw !== inputs.pwCheck) {
+    if (userInfo.pw !== userInfo.pwCheck) {
       return "PW가 일치하지 않습니다.";
     } else {
       return "";
     }
-  }, [inputs.pwCheck]);
+  }, [userInfo.pwCheck]);
 
   const validation = () => {
-    if (!inputs.userName || !inputs.id || !inputs.pw || !inputs.pwCheck) {
+    if (
+      !userInfo.userName ||
+      !userInfo.id ||
+      !userInfo.pw ||
+      !userInfo.pwCheck
+    ) {
       alert("입력란을 모두 입력해 주세요");
       return false;
     } else if (idMessage || pwMessage || pwCheckMessage) {
       return false;
     }
-    alert("로그인 성공");
-    resetForm();
     return true;
   };
 
   const handleClickSubmitForm = (e) => {
     if (validation()) {
-      console.log("로그인 성공");
-      // 데이터 통신 로직
+      mutation.mutate(userInfo); // 서버에 유저정보 전송
     }
   };
 
@@ -70,14 +91,14 @@ function SignupPage() {
           <StLoginTitle>SIGNUP</StLoginTitle>
           <LabelInput
             name="userName"
-            value={inputs.userName}
+            value={userInfo.userName}
             onChange={handleInputChange}
           >
             UserName
           </LabelInput>
           <LabelInput
             name="id"
-            value={inputs.id}
+            value={userInfo.id}
             onChange={handleInputChange}
             message={idMessage}
           >
@@ -86,7 +107,7 @@ function SignupPage() {
           <LabelInput
             type="password"
             name="pw"
-            value={inputs.pw}
+            value={userInfo.pw}
             onChange={handleInputChange}
             message={pwMessage}
           >
@@ -95,7 +116,7 @@ function SignupPage() {
           <LabelInput
             type="password"
             name="pwCheck"
-            value={inputs.pwCheck}
+            value={userInfo.pwCheck}
             onChange={handleInputChange}
             message={pwCheckMessage}
           >

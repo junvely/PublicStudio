@@ -2,24 +2,12 @@ import Button from "redux/components/common/Button";
 import Footer from "redux/components/common/Footer";
 import { StButtonCon, StModifyCon } from "styles/Components";
 import { StDetailCon, StFlexCenter, StPositionSec } from "styles/GlobalStyles";
-import { addPostsAxios } from "../api/api";
+import { addPostsAxios } from "../api/posts";
 import { useInputs } from "redux/hooks/useInputs";
 import { v4 as uuidv4 } from "uuid";
 import { useMutation, useQueryClient } from "react-query";
 
 function PostingPage() {
-  let today = new Date();
-  const initialState = {
-    id: uuidv4(),
-    userName: "",
-    title: "",
-    contents: "",
-    imgURL: "",
-    date: today.toLocaleDateString(),
-  };
-
-  // custom Hook
-  const [post, handleInputChange, resetPost] = useInputs(initialState);
   const queryClient = useQueryClient();
   const mutation = useMutation(addPostsAxios, {
     onSuccess: () => {
@@ -32,6 +20,19 @@ function PostingPage() {
     },
   });
 
+  let today = new Date();
+  const initialState = {
+    id: uuidv4(),
+    userName: "",
+    title: "",
+    contents: "",
+    imgURL: "",
+    date: today.toLocaleDateString(),
+  };
+
+  // custom Hook
+  const [post, handleInputChange, resetPost] = useInputs(initialState);
+
   // 폼 유효성 검사
   const formValidation = () => {
     if (!post.title || !post.contents || !post.imgURL) {
@@ -43,7 +44,7 @@ function PostingPage() {
 
   const handleSubmitAddPost = async () => {
     if (formValidation()) {
-      mutation.mutate(post); //서버에 추가 요청
+      mutation.mutate(post); //서버에 Post추가 요청
     }
   };
   return (

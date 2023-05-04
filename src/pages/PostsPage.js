@@ -1,4 +1,4 @@
-import { getPostsAxios } from "../api/api";
+import { getPostsAxios } from "../api/posts";
 import Post from "redux/components/Post";
 import Footer from "redux/components/common/Footer";
 import { StPostsCon } from "styles/Components";

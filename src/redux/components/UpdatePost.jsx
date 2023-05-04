@@ -7,13 +7,27 @@ import {
 import { ErrorMessage, StDetailCon, StFlexCenter } from "styles/GlobalStyles";
 import Button from "./common/Button";
 import { useInputs } from "redux/hooks/useInputs";
-import { getPostAxios, updatePostAxios } from "../../api/api";
+import { getPostAxios, updatePostAxios } from "../../api/posts";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 
 function UpdatePost({ id, modalToggle }) {
   const { isLoading, isError, data } = useQuery(`/posts/post:${id}`, () =>
     getPostAxios(id)
   );
+
+  const queryClient = useQueryClient();
+  const mutation = useMutation(updatePostAxios, {
+    onSuccess: () => {
+      resetPost(resetState); // useInputs 초기화
+      modalToggle(); // toggle 닫기
+      alert("수정 성공!");
+      queryClient.invalidateQueries("post");
+    },
+    onError: () => {
+      alert("Error : 서버 에러 발생");
+    },
+  });
+
   const [newPost, handleInputChange, resetPost] = useInputs(data);
 
   const resetState = {
@@ -33,19 +47,6 @@ function UpdatePost({ id, modalToggle }) {
     }
     return true;
   };
-
-  const queryClient = useQueryClient();
-  const mutation = useMutation(updatePostAxios, {
-    onSuccess: () => {
-      resetPost(resetState); // useInputs 초기화
-      modalToggle(); // toggle 닫기
-      alert("수정 성공!");
-      queryClient.invalidateQueries("post");
-    },
-    onError: () => {
-      alert("Error : 서버 에러 발생");
-    },
-  });
 
   //서버에 수정 요청
   const handleClickSaveUpdatePost = () => {

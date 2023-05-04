@@ -1,4 +1,4 @@
-import { deletePostAxios } from "../../api/api";
+import { deletePostAxios } from "../../api/posts";
 import { useNavigate } from "react-router-dom";
 import { StDelete, StPost, StPostTitle } from "styles/Components";
 import { useMutation, useQueryClient } from "react-query";
@@ -6,7 +6,6 @@ import { useMutation, useQueryClient } from "react-query";
 function Post({ post, width, isActive }) {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-
   const mutation = useMutation(deletePostAxios, {
     onSuccess: () => {
       queryClient.invalidateQueries("posts");

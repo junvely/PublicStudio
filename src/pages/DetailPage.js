@@ -1,4 +1,4 @@
-import { getPostAxios } from "../api/api";
+import { getPostAxios } from "../api/posts";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import AirBox from "redux/components/common/AirBox";
@@ -18,6 +18,7 @@ import { useQuery } from "react-query";
 
 function DetailPage() {
   const [modalToggle, setModalToggle] = useState(false);
+
   const { id } = useParams();
 
   const { isLoading, isError, data } = useQuery(`/posts/post:${id}`, () =>
