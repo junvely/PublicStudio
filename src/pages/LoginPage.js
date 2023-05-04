@@ -56,6 +56,7 @@ function LoginPage() {
             ID
           </LabelInput>
           <LabelInput
+            type="password"
             name="pw"
             value={userAuth.pw}
             onChange={handleInputChange}
