@@ -1,4 +1,4 @@
-import { signupAxios } from "api/auth";
+import { signupAxios } from "../api/auth/register";
 import React, { useMemo } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
@@ -80,7 +80,12 @@ function SignupPage() {
 
   const handleClickSubmitForm = (e) => {
     if (validation()) {
-      mutation.mutate(userInfo); // 서버에 유저정보 전송
+      mutation.mutate({
+        // 서버에 유저정보 전송
+        userName: userInfo.userName,
+        id: userInfo.id,
+        pw: userInfo.pw,
+      });
     }
   };
 

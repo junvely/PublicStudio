@@ -1,4 +1,4 @@
-import { loginAxios } from "api/auth";
+import { loginAxios } from "../api/auth/login";
 import { useMutation } from "react-query";
 import { Link, useNavigate } from "react-router-dom";
 import LabelInput from "redux/components/LabelInput";
