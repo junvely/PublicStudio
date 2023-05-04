@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const usePost = (initialState) => {
+export const useInputs = (initialState) => {
   const [post, setPost] = useState(initialState);
 
   const handler = (e) => {

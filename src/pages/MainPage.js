@@ -10,7 +10,7 @@ function MainPage() {
     <>
       <StPositionSec>
         <StInnerCon padding="5% 13%">
-          <StMainTitle>What's your choice?</StMainTitle>
+          <StMainTitle>What's your Choice?</StMainTitle>
           <StPosts>
             <StFlexCon>
               <li

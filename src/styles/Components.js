@@ -65,38 +65,46 @@ export const StPosts = styled.div`
 
 //PostPage
 export const StModifyCon = styled.div`
+  padding: 0 7%;
+
   div {
     width: 100%;
     display: flex;
-    padding-bottom: 2%;
-    margin-bottom: 3%;
+    align-items: center;
+    padding-bottom: 1%;
+    margin-bottom: 2%;
     border-bottom: 2px solid ${Colors.lightGray};
   }
-  span {
+
+  span,
+  label {
     display: block;
-    padding: 0 3%;
+    padding: 1% 3%;
     font-size: 1.2rem;
-    font-family: ${Fonts.rogotoSlab};
+    font-family: ${Fonts.palyFair};
     margin-right: 3%;
   }
 
   p {
-    width: 60%;
+    width: 50%;
     height: 100%;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.8rem;
     word-break: break-all;
     word-wrap: break-word;
   }
 
   input {
-    font-size: 1.2rem;
+    width: 60%;
+    font-weight: 600;
+    font-size: 1rem;
     line-height: 2rem;
     padding-top: 3px;
   }
 
   textarea {
     width: 100%;
+    font-weight: 500;
     font-family: ${Fonts.notoSans};
     font-size: 1rem;
     line-height: 2rem;
@@ -111,6 +119,67 @@ export const StButtonCon = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 10px;
+`;
+
+//login
+export const StFormCon = styled.div`
+  padding: 1% 10%;
+`;
+
+export const StLoginTitle = styled.h1`
+  font-size: 2rem;
+  font-family: ${Fonts.rogotoSlab};
+  text-align: center;
+  padding-bottom: 30px;
+`;
+
+//signup
+export const StSignupCon = styled.div`
+  div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 2%;
+    margin-bottom: 1%;
+    border-bottom: 2px solid ${Colors.lightGray};
+  }
+
+  label {
+    display: block;
+    padding: 1% 3%;
+    font-size: 1.2rem;
+    font-family: ${Fonts.palyFair};
+    margin-right: 3%;
+  }
+
+  p {
+    width: 60%;
+    height: 100%;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+
+  input {
+    width: 60%;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding-top: 3px;
+  }
+`;
+
+//signup
+export const StGotoSignup = styled.span`
+  font-size: 0.8rem;
+  text-decoration: underline;
+  display: flex;
+  justify-content: center;
+
+  a {
+    text-align: center;
+    margin: 10px 0 20px;
+  }
 `;
 
 //Components
@@ -154,6 +223,8 @@ export const StHeader = styled.div`
   width: 100%;
   max-width: 1400px;
   height: 140px;
+  display: flex;
+  justify-content: space-between;
   padding: 3% 5%;
   position: static;
 `;
@@ -168,6 +239,26 @@ export const StLogo = styled.h1`
 
   a:hover {
     color: ${Colors.gray};
+  }
+`;
+
+export const StLogin = styled.div`
+  height: 30px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  z-index: 10;
+  cursor: pointer;
+
+  a {
+    /* display: block; */
+    margin-right: 15px;
+    font-family: ${Fonts.palyFair};
+    font-weight: 600;
+  }
+
+  &:hover {
+    transform: translateX(10px);
   }
 `;
 
@@ -308,4 +399,12 @@ export const StFooterLogo = styled.span`
   font-size: 1.5rem;
   padding: 0 5%;
   font-weight: 600;
+`;
+
+// input
+export const StMessage = styled.span`
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #2268ff;
+  padding: 0 3%;
 `;

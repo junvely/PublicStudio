@@ -3,7 +3,7 @@ import Footer from "redux/components/common/Footer";
 import { StButtonCon, StModifyCon } from "styles/Components";
 import { StDetailCon, StFlexCenter, StPositionSec } from "styles/GlobalStyles";
 import { addPostsAxios } from "../api/api";
-import { usePost } from "redux/hooks/usePost";
+import { useInputs } from "redux/hooks/useInputs";
 import { v4 as uuidv4 } from "uuid";
 import { useMutation, useQueryClient } from "react-query";
 
@@ -19,7 +19,7 @@ function PostingPage() {
   };
 
   // custom Hook
-  const [post, handleInputChange, resetPost] = usePost(initialState);
+  const [post, handleInputChange, resetPost] = useInputs(initialState);
   const queryClient = useQueryClient();
   const mutation = useMutation(addPostsAxios, {
     onSuccess: () => {

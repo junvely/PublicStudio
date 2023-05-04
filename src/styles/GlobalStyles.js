@@ -76,7 +76,7 @@ export const StFlexCenter = styled.div`
 `;
 
 export const StDetailCon = styled.div`
-  width: 50%;
+  width: 45%;
   max-width: 530px;
   height: ${(props) => props.height};
   font-family: ${Fonts.notoSans};
@@ -89,6 +89,7 @@ export const StDetailCon = styled.div`
   justify-content: space-between;
   overflow: hidden;
   position: relative;
+  border-radius: 10px;
 `;
 
 export const ErrorMessage = styled.p`

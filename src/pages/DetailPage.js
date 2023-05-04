@@ -41,12 +41,12 @@ function DetailPage() {
               <StDetailCon height="430px">
                 <StModifyCon>
                   <div>
-                    <span> User Name : </span>
-                    <p>{data.userName}</p>
-                  </div>
-                  <div>
                     <span> Date : </span>
                     <p>{data.date}</p>
+                  </div>
+                  <div>
+                    <span> User Name : </span>
+                    <p>{data.userName}</p>
                   </div>
                   <div>
                     <span> Title : </span>

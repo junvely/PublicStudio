@@ -9,6 +9,9 @@ import { StFlexWrap, StSection } from "styles/GlobalStyles";
 import { Colors } from "styles/Them";
 import DetailPage from "pages/DetailPage";
 import PostingPage from "pages/PostingPage";
+import AccountPage from "pages/AccountPage";
+import LoginPage from "pages/LoginPage";
+import SignupPage from "pages/SignupPage";
 
 function Router() {
   return (
@@ -24,6 +27,13 @@ function Router() {
                 <Route path="/posts" element={<PostsPage />}></Route>
                 <Route path="/posts/:id" element={<DetailPage />}></Route>
                 <Route path="/form" element={<PostingPage />}></Route>
+                <Route path="/account" element={<AccountPage />}>
+                  <Route path="/account/login" element={<LoginPage />}></Route>
+                  <Route
+                    path="/account/signup"
+                    element={<SignupPage />}
+                  ></Route>
+                </Route>
               </Routes>
             </StSection>
           </StLayout>

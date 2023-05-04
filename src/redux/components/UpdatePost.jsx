@@ -6,7 +6,7 @@ import {
 } from "styles/Components";
 import { ErrorMessage, StDetailCon, StFlexCenter } from "styles/GlobalStyles";
 import Button from "./common/Button";
-import { usePost } from "redux/hooks/usePost";
+import { useInputs } from "redux/hooks/useInputs";
 import { getPostAxios, updatePostAxios } from "../../api/api";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 
@@ -14,7 +14,7 @@ function UpdatePost({ id, modalToggle }) {
   const { isLoading, isError, data } = useQuery(`/posts/post:${id}`, () =>
     getPostAxios(id)
   );
-  const [newPost, handleInputChange, resetPost] = usePost(data);
+  const [newPost, handleInputChange, resetPost] = useInputs(data);
 
   const resetState = {
     id: 0,
@@ -37,7 +37,7 @@ function UpdatePost({ id, modalToggle }) {
   const queryClient = useQueryClient();
   const mutation = useMutation(updatePostAxios, {
     onSuccess: () => {
-      resetPost(resetState); // usePost 초기화
+      resetPost(resetState); // useInputs 초기화
       modalToggle(); // toggle 닫기
       alert("수정 성공!");
       queryClient.invalidateQueries("post");
