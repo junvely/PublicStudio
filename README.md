@@ -3,11 +3,11 @@
 ### 1. 프로젝트 Description
 
 - Public Studio, 감성이 공유되는 공간
+  https://public-studio.vercel.app/
 
 #### 로그인 페이지
 
 ![publicstudio](https://github.com/junvely/PublicStudio/assets/83201893/f776c6d7-8168-40f7-974b-5a34a5af7969)
-
 
 #### 메인 페이지
 

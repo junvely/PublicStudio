@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cookie } from "../api/auth/cookie";
 
 export const useAuth = () => {
