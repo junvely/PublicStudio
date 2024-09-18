@@ -1,6 +1,5 @@
-// import jwt from "jsonwebtoken";
-import { AxiosAuth } from "./auth";
 import { cookie } from "./cookie";
+import { AxiosAuth } from "./instance";
 
 // 로그인 => id 존재 여부 및 패스워드가 일치하는지 확인
 export const loginAxios = async (payload) => {
@@ -12,8 +11,6 @@ export const loginAxios = async (payload) => {
     // id 존재여부 확인, id 존재시 비밀번호 일치 여부 확인
     if (findId) {
       if (findId.pw == payload.pw) {
-        // const token = jwt.sign(data, "secret_key", { expiresIn: "10m" });
-        // cookie.set("accessToken", token);
         cookie.set("accessToken", "token");
         return { isSuccess: true, accessToken: "" };
       } else {

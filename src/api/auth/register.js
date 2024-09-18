@@ -1,4 +1,4 @@
-import { AxiosAuth } from "./auth";
+import { AxiosAuth } from "./instance";
 
 // 회원가입 => 아이디 중복여부도 같이 확인
 export const signupAxios = async (payload) => {

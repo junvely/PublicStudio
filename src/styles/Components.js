@@ -248,13 +248,13 @@ export const StLogin = styled.div`
   align-items: center;
   transition: all 0.3s;
   z-index: 10;
+  font-family: ${Fonts.palyFair};
+  font-weight: 600;
   cursor: pointer;
 
-  a {
-    /* display: block; */
+  a,
+  span {
     margin-right: 15px;
-    font-family: ${Fonts.palyFair};
-    font-weight: 600;
   }
 
   &:hover {

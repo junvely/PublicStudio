@@ -12,7 +12,7 @@
       "id": 2,
       "userName": "Master",
       "title": "Florlst studio",
-      "contents": "Florlst studio Florlst studio Florlst studio Florlst studio ",
+      "contents": "Florlst studio Florlst studio Florlst studio Florlst studio~~~~",
       "imgURL": "https://cdn.pixabay.com/photo/2017/03/29/20/10/london-2186349_960_720.jpg",
       "date": "2023.5.1"
     },
@@ -119,13 +119,21 @@
       "contents": "하잉하이하이ㅏ히아히아ㅣ하이ㅏ힝",
       "imgURL": "https://i.pinimg.com/originals/b0/63/2d/b0632dadbde9e94e7118d0cb6edb0cf2.jpg",
       "date": "2023. 7. 3."
+    },
+    {
+      "id": "54ce8a6e-0b3e-4769-878d-8e5ad56df321",
+      "userName": "ㅇㅇ",
+      "title": "dㅇㅇ",
+      "contents": "ㅇㅇ",
+      "imgURL": "https://i.pinimg.com/originals/b0/63/2d/b0632dadbde9e94e7118d0cb6edb0cf2.jpg",
+      "date": "2023. 7. 28."
     }
   ],
   "users": [
     {
       "userName": "test",
-      "id": "11111",
-      "pw": "11111"
+      "id": "test",
+      "pw": "test"
     },
     {
       "userName": "1",
