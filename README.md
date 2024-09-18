@@ -6,7 +6,8 @@
 
 #### 로그인 페이지
 
-## <img src="./public/img/main.gif" />
+![publicstudio](https://github.com/junvely/PublicStudio/assets/83201893/f776c6d7-8168-40f7-974b-5a34a5af7969)
+
 
 #### 메인 페이지
 
